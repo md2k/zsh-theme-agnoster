@@ -237,8 +237,8 @@ KUBE_PS1_BG_COLOR="$(prompt_segment black default)"
 KUBE_PS1_PREFIX=""
 KUBE_PS1_SUFFIX=""
 
-PROMPT='%{%f%b%k%}$(kube_ps1)$(build_prompt) '
-
+#PROMPT='%{%f%b%k%}$(kube_ps1)$(build_prompt) '
+PROMPT='%{%f%b%k%}$(if declare -f kube_ps1 > /dev/null; then kube_ps1; else ''; fi) $(build_prompt) '
 #PROMPT='%{%f%b%k%}$(build_prompt) '
 
 ##PROMPT="%(!.%{%F{yellow}%}.)%{$FG[009]%}$USER%{$FG[011]%}@%{$FG[014]%}%m"
